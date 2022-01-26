@@ -1,0 +1,14 @@
+﻿################################################################################
+# Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
+################################################################################
+
+/DevTask1/obj/Debug/net5.0/DevTask1.AssemblyInfo.cs
+/DevTask1/obj/project.nuget.cache
+/DevTask1/obj/project.assets.json
+/DevTask1/obj/DevTask1.csproj.nuget.g.targets
+/DevTask1/obj/DevTask1.csproj.nuget.g.props
+/DevTask1/obj/DevTask1.csproj.nuget.dgspec.json
+/DevTask1/obj/Debug/net5.0/DevTask1.GeneratedMSBuildEditorConfig.editorconfig
+/DevTask1/obj/Debug/net5.0/DevTask1.csproj.AssemblyReference.cache
+/DevTask1/obj/Debug/net5.0/DevTask1.assets.cache
+/DevTask1/obj/Debug/net5.0/DevTask1.AssemblyInfoInputs.cache
