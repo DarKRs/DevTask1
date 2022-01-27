@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace DevTask1
 {
-    class Writer
+    public class Writer
     {
+        string path;
+        Dictionary<string, int> wordCount;
+
+
+        Writer(string path)
+        {
+            this.path = path;
+            wordCount = new Dictionary<string, int>();
+        }
+        
+        
+
     }
 }
