@@ -6,7 +6,11 @@ namespace DevTask1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Введите путь до входного файла:");
+            string path = Console.ReadLine();
+            Reader r = new(path);
+            r.Read();
+            Console.ReadKey();
         }
     }
 }

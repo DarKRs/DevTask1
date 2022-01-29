@@ -12,25 +12,24 @@ namespace DevTask1
         string path;
         Dictionary<string,int> wordCount;
 
-        Reader(string path)
+        public Reader(string path)
         {
             this.path = path;
             wordCount = new Dictionary<string, int>();
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
-        public void Read()
+        public async void Read()
         {
             Encoding win1251 = Encoding.GetEncoding(1251);
-            using (var reader = new StreamReader(path, win1251))
+            string str;
+            using (var reader = new StreamReader(@path, win1251))
             {
-                 str =  reader.ReadToEndAsync();
-                // преобразуем строку в байты
-                byte[] array = new byte[fstream.Length];
-                // считываем данные
-                fstream.Read(array, 0, array.Length);
-                // декодируем байты в строку
-                string textFromFile = System.Text.Encoding..GetString(array);
-                Console.WriteLine($"Текст из файла: {textFromFile}");
+                string line;
+                while ((line = await reader.ReadLineAsync()) != null)
+                {
+                    Console.WriteLine(line);
+                }
             }
         }
     }
