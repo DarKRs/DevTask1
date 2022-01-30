@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace DevTask1
@@ -16,7 +17,6 @@ namespace DevTask1
         {
             this.path = path;
             wordCount = new Dictionary<string, int>();
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
         public async void Read()
@@ -28,9 +28,29 @@ namespace DevTask1
                 string line;
                 while ((line = await reader.ReadLineAsync()) != null)
                 {
-                    Console.WriteLine(line);
+                    ParseAndUpdate(line);
                 }
             }
+            var sortedDict = from entry in wordCount orderby entry.Value descending select entry;
+        }
+
+        private void ParseAndUpdate(string line)
+        {
+            Regex regex = new Regex(@"\W");
+            string toParse = regex.Replace(line.ToLower(), " ");
+            string[] words = toParse.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            foreach(var word in words)
+            {
+                if(!wordCount.ContainsKey(word))
+                {
+                    wordCount.Add(word, 1);
+                }
+                else
+                {
+                    wordCount[word]++;
+                }
+            }
+            return;
         }
     }
 }
